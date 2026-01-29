@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Paste</title>
+  <style>
+    body { font-family: Arial; padding: 30px; }
+    pre { background: #f4f4f4; padding: 15px; border-radius: 5px; white-space: pre-wrap; }
+    button { margin-top: 15px; padding: 8px 15px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Paste Content</h1>
+  <pre id="pasteContent"></pre>
+  <button onclick="copyLink()">📋 Copy Link</button>
+  <p id="msg"></p>
+
+  <script>
+    document.getElementById('pasteContent').textContent = window.PASTE_CONTENT || '';
+
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href);
+      document.getElementById('msg').textContent = 'Link copied to clipboard!';
+    }
+  </script>
+</body>
+</html>
